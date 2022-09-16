@@ -46,6 +46,7 @@ namespace Cs_my_doc_bot3
         public void Start()
         {
             bot.StartReceiving(Update, Error);
+            
         }
 
 
@@ -61,6 +62,7 @@ namespace Cs_my_doc_bot3
             int i = 0;
             foreach (var item in tempNameDirectory)
             {
+                Console.WriteLine(item);
                 tempButton[i] = new[] { InlineKeyboardButton.WithCallbackData(item, item) };
                 i++;
             }
@@ -72,15 +74,17 @@ namespace Cs_my_doc_bot3
         {
             Message? message = update.Message;
 
-            if(update.Message != null && update.Type == UpdateType.CallbackQuery && update.CallbackQuery != null && update.CallbackQuery.Message != null)
+            if (update.Type == UpdateType.CallbackQuery && update.CallbackQuery != null && update.CallbackQuery.Message != null)
             {
-                //await botClient.EditMessageTextAsync(update.CallbackQuery.Message.Chat.Id.ToString(), update.CallbackQuery.Message.MessageId, "test");
-                Console.WriteLine("smth");
-                var inlineKeyboard = GetDirectorie(update.CallbackQuery.Message.Text);
-                await botClient.SendTextMessageAsync(message.Chat.Id, "Нажмите на папку:", replyMarkup: inlineKeyboard);
+                if (update.CallbackQuery.Data.ToLower().StartsWith(@"C:\"));
+                {
+                    //await botClient.EditMessageTextAsync(update.CallbackQuery.Message.Chat.Id.ToString(), update.CallbackQuery.Message.MessageId, "test");
+                    Console.WriteLine(update.CallbackQuery.Data);
+                    var inlineKeyboard = GetDirectorie($@"{update.CallbackQuery.Data}");
+                    await botClient.SendTextMessageAsync(message.Chat.Id, "Нажмите на папку:", replyMarkup: GetDirectorie($@"{update.CallbackQuery.Data}"));
+                }
             }
-
-            if (message.Text != null && update.Type != UpdateType.CallbackQuery)
+            if(update.Type == UpdateType.Message)
             {
                 if (message.Chat.Username == "Dominuskick")
                 {
@@ -105,10 +109,6 @@ namespace Cs_my_doc_bot3
                     await botClient.SendTextMessageAsync(message.Chat.Id, "You do not have access");
 
                 }
-            }
-            else
-            {
-                await botClient.SendTextMessageAsync(message.Chat.Id, "NOOOOOOOOOOOOOOO");
             }
         }
         private static Task Error(ITelegramBotClient arg1, Exception arg2, CancellationToken arg3)

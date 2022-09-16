@@ -1,0 +1,17 @@
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\bin\Debug\netcoreapp3.1\Telegram_bot_search_2.exe
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\bin\Debug\netcoreapp3.1\Telegram_bot_search_2.deps.json
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\bin\Debug\netcoreapp3.1\Telegram_bot_search_2.runtimeconfig.json
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\bin\Debug\netcoreapp3.1\Telegram_bot_search_2.runtimeconfig.dev.json
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\bin\Debug\netcoreapp3.1\Telegram_bot_search_2.dll
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\bin\Debug\netcoreapp3.1\Telegram_bot_search_2.pdb
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\bin\Debug\netcoreapp3.1\Telegram.Bot.dll
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\obj\Debug\netcoreapp3.1\Telegram_bot_search_2.csproj.AssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\obj\Debug\netcoreapp3.1\Telegram_bot_search_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\obj\Debug\netcoreapp3.1\Telegram_bot_search_2.AssemblyInfoInputs.cache
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\obj\Debug\netcoreapp3.1\Telegram_bot_search_2.AssemblyInfo.cs
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\obj\Debug\netcoreapp3.1\Telegram_bot_search_2.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\obj\Debug\netcoreapp3.1\Telegram_bot_search_2.csproj.CopyComplete
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\obj\Debug\netcoreapp3.1\Telegram_bot_search_2.dll
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\obj\Debug\netcoreapp3.1\Telegram_bot_search_2.pdb
+C:\Users\Admin\Documents\GitHub\Telegram-bots\Telegram_bot_search_2\Telegram_bot_search_2\obj\Debug\netcoreapp3.1\Telegram_bot_search_2.genruntimeconfig.cache
