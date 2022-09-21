@@ -66,7 +66,7 @@ namespace Cs_my_doc_bot3
             foreach (var item in tempNameDirectory)
             {
                 Console.WriteLine(item);
-                tempButton[i] = new[] { InlineKeyboardButton.WithCallbackData(item, @$"""{item}""") };
+                tempButton[i] = new[] { InlineKeyboardButton.WithCallbackData(item, @$"{item}") };
                 i++;
                 num++;
             }
@@ -74,7 +74,7 @@ namespace Cs_my_doc_bot3
             foreach (var item in tempNamefile)
             {
                 Console.WriteLine(item);
-                tempButton[i] = new[] { InlineKeyboardButton.WithCallbackData(item, @$"""{item}""") };
+                tempButton[i] = new[] { InlineKeyboardButton.WithCallbackData(item, @$"{item}") };
                 i++;
                 num++;
                 int k;
