@@ -22,6 +22,7 @@ namespace Cs_my_doc_bot3
         static void Main(string[] args)
         {
             var token = "5747434056:AAG20Tfi8YTW8p2AMP0XEJEutaXVRMXlqqw";
+            //var token = "5459996216:AAHlWw8Gvj2k1zQk9PiOPfJKX9two3n2I5U";
             var client = new Doc_Bot(token);
 
             client.Start();
@@ -35,6 +36,8 @@ namespace Cs_my_doc_bot3
 
         static string[] tempNamefile;
         static string[] tempNameDirectory;
+        static long chatId = 0;
+        static int num = 0;
 
         private static string TempPath = @"C:\";
 
@@ -57,14 +60,24 @@ namespace Cs_my_doc_bot3
             tempNameDirectory = System.IO.Directory.GetDirectories(Path);
 
 
-            var tempButton = new InlineKeyboardButton[tempNameDirectory.Length][];
+            var tempButton = new InlineKeyboardButton[tempNameDirectory.Length + tempNamefile.Length][];
 
             int i = 0;
             foreach (var item in tempNameDirectory)
             {
                 Console.WriteLine(item);
-                tempButton[i] = new[] { InlineKeyboardButton.WithCallbackData(item, item) };
+                tempButton[i] = new[] { InlineKeyboardButton.WithCallbackData(item, @$"""{item}""") };
                 i++;
+                num++;
+            }
+
+            foreach (var item in tempNamefile)
+            {
+                Console.WriteLine(item);
+                tempButton[i] = new[] { InlineKeyboardButton.WithCallbackData(item, @$"""{item}""") };
+                i++;
+                num++;
+                int k;
             }
             InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup(tempButton);
             return inlineKeyboard;
@@ -76,18 +89,29 @@ namespace Cs_my_doc_bot3
 
             if (update.Type == UpdateType.CallbackQuery && update.CallbackQuery != null && update.CallbackQuery.Message != null)
             {
-                if (update.CallbackQuery.Data.ToLower().StartsWith(@"C:\"));
+                //if (update.CallbackQuery.Data.StartsWith(@"C:\"))
                 {
-                    //await botClient.EditMessageTextAsync(update.CallbackQuery.Message.Chat.Id.ToString(), update.CallbackQuery.Message.MessageId, "test");
-                    Console.WriteLine(update.CallbackQuery.Data);
-                    var inlineKeyboard = GetDirectorie($@"{update.CallbackQuery.Data}");
-                    await botClient.SendTextMessageAsync(message.Chat.Id, "Нажмите на папку:", replyMarkup: GetDirectorie($@"{update.CallbackQuery.Data}"));
+                    FileAttributes attr = System.IO.File.GetAttributes($@"{update.CallbackQuery.Data}");
+                    if ((attr & FileAttributes.Directory) != FileAttributes.Directory)
+                    {
+                        await using Stream stream = System.IO.File.OpenRead(update.CallbackQuery.Data);
+
+                        await botClient.SendDocumentAsync(update.CallbackQuery.Message.Chat.Id, new InputOnlineFile(stream, "Dumpstack.log"));
+                    }
+                    else
+                    {
+                        //await botClient.EditMessageTextAsync(update.CallbackQuery.Message.Chat.Id.ToString(), update.CallbackQuery.Message.MessageId, "test");
+                        Console.WriteLine(update.CallbackQuery.Data);
+                        var inlineKeyboard = GetDirectorie($"{update.CallbackQuery.Data}");
+                        await botClient.SendTextMessageAsync(update.CallbackQuery.Message.Chat.Id, "Нажмите на папку:", replyMarkup: inlineKeyboard);
+                    }
                 }
             }
             if(update.Type == UpdateType.Message)
             {
                 if (message.Chat.Username == "Dominuskick")
                 {
+                    chatId = message.Chat.Id;
                     await botClient.SendTextMessageAsync(message.Chat.Id, "Hi Fillostrat");
                     try
                     {
